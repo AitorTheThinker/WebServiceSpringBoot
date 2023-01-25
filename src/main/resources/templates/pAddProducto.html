@@ -1,0 +1,33 @@
+<html>
+<head>
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" href=../static/css/bootstrap.css />
+ <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+</head>
+<body>
+
+
+<form method="post" role="form" th:action="@{/add-producto}"  
+								th:object="${producto}">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <input type="hidden" th:field="*{id}" class="form-control mb-2" id="id" placeholder="">
+      <label class="sr-only" for="descripcion">Descripcion</label>
+      <input type="text" th:field="*{descripcion}" class="form-control mb-2" id="descripcion" placeholder="">
+    
+<select class="form-control" id="dropDownList" th:field="*{categorias.id}">
+    <option value="1">selecciona una opción</option>
+    <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.categoria}"></option>
+</select>
+
+
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Añadir</button>
+    </div>
+  </div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

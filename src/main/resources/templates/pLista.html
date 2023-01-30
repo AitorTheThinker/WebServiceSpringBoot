@@ -34,8 +34,9 @@ role="button">Incluir producto</a>
 	                <a type="button" class="btn btn-warning" 
 	                				 th:href="@{'/delete-producto?id=' +${p.id}}">Eliminar</a>
 					</td>
+					
 					<td th:text="${p.categorias.categoria}"></td>
-				<td th:text="${p.categorias.categoria}"></td>
+					
             </tr>
             
         </tbody>

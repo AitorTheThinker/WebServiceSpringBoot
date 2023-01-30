@@ -45,8 +45,8 @@ public class CategoriaRepository implements ICategoriasDTO{
 
     @Override
     public CategoriasDTO getCategoriasByID(int id) {
-        String sql = "SELECT * FROM categorias WHERE id = ?";
-        return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper(), id);
+        String sql = "SELECT * FROM categorias WHERE id = "+id;
+        return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper());
     }
 
     @Override

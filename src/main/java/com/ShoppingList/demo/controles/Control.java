@@ -45,12 +45,20 @@ public class Control{
 		return "index";
 	}
 	
+	/**
+	 * Metodo GET para obtener la request
+	 * y mostrar los resultados de las compras
+	 * @param model
+	 * @param categoria
+	 * @return
+	 */
 	@Cacheable(value="compras")
 	@GetMapping("/go-to-lista")
-	public String goToLista(Model model, CategoriasDTO categoria) {
+	public String goToLista(Model model) {
 	    List<CompraDTO> compras = compraRepository.getAllCompras();
 	    for (CompraDTO c : compras) {
 	        int idCategoria = c.getCategorias().getId();
+
 	       
 	    }
 	    model.addAttribute("productos", compras);

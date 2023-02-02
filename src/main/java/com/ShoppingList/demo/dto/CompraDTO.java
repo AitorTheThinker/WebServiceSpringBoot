@@ -1,7 +1,5 @@
 package com.ShoppingList.demo.dto;
 
-import com.ShoppingList.demo.dto.*;
-
 public class CompraDTO {
 	
 	public int id;

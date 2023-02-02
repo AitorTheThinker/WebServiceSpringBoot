@@ -15,10 +15,12 @@ import com.ShoppingList.demo.mapper.CompraRowMapper;
 public class CompraRepository implements ICompraRepository{
 
 	@Autowired
+	@Qualifier("jdbcTemplateDB1")
 	JdbcTemplate jdbcTemplate;
 
 	
 	@Autowired
+	@Qualifier("jdbcTemplateDB2")
 	JdbcTemplate jdbcTemplate2;
 	
 	@Override

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ShoppingList.demo.dto.CategoriasDTO;
 import com.ShoppingList.demo.dto.CompraDTO;
+import com.ShoppingList.demo.dto.UserDTO;
 import com.ShoppingList.demo.repositories.CategoriaRepository;
 import com.ShoppingList.demo.repositories.CompraRepository;
 
@@ -45,13 +46,19 @@ public class Control{
 		return "index";
 	}
 	
+	/**
+	 * Metodo GET para obtener la request
+	 * y mostrar los resultados de las compras
+	 * @param model
+	 * @param categoria
+	 * @return
+	 */
 	@Cacheable(value="compras")
 	@GetMapping("/go-to-lista")
-	public String goToLista(Model model, CategoriasDTO categoria) {
+	public String goToLista(Model model) {
 	    List<CompraDTO> compras = compraRepository.getAllCompras();
 	    for (CompraDTO c : compras) {
 	        int idCategoria = c.getCategorias().getId();
-	       
 	    }
 	    model.addAttribute("productos", compras);
 	    model.addAttribute("categorias", categoriaRepository.getAllCategorias());
@@ -102,5 +109,15 @@ public class Control{
 		return "pAddProducto";
 		
 	}
+	
+	@RequestMapping("/login")
+	public String login(Model model) {
+		UserDTO user = new UserDTO();
+		model.addAttribute("user", user);
+		
+		return "login.html";
+	}
+	
+	
 	
 }

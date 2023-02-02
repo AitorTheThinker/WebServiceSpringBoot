@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ShoppingList.demo.dto.RecipeDTO;
 import com.ShoppingList.demo.service.RecipesServices;
@@ -26,5 +27,12 @@ public class RecipesController {
 		
 	}
 
+	@GetMapping("/add-ingredients")
+	public String addIngredientsByIdMeal(@RequestParam("idMeal")int idMeal) {
+		
+		RecipeDTO recipe= recipeService.getIndregientsByIdMeal(idMeal);
+		
+		return"pLista";
+	}
 
 }

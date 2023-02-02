@@ -5,13 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <title>Document</title>
+  <title>Recipe List</title>
 </head>
 <body>
 <section style="background-color: #eee;">
 <tbody>
 <tr th:each="recipe:${recipes}">
-
   <div class="container py-5">
     <div class="row justify-content-center mb-3">
       <div class="col-md-12 col-xl-10">
@@ -30,7 +29,7 @@
                 </div>
               </div>
               <div class="col-md-6 col-lg-6 col-xl-6">
-                <h5>Quant trident shirts</h5>
+                <h5 th:text="${recipe.strMeal}"></h5>
                 <div class="d-flex flex-row">
                   <div class="text-danger mb-1 me-2">
                     <i class="fa fa-star"></i>
@@ -38,37 +37,26 @@
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                   </div>
-                  <span>310</span>
                 </div>
                 <div class="mt-1 mb-0 text-muted small">
-                  <span>100% cotton</span>
-                  <span class="text-primary"> • </span>
-                  <span>Light weight</span>
-                  <span class="text-primary"> • </span>
-                  <span>Best finish<br /></span>
+                  <h5 th:text="${recipe.strDrinkAlternate}"></h5>
+                  <h5 th:text="${recipe.strCategory}"></h5>
+                  <h5 th:text="${recipe.strArea}"></h5>
+                  <p class="text-truncate" th:text="${recipe.strInstructions}"></p>
+                  <h5 th:text="${recipe.strTags}"></h5>
+                  <h5 th:text="${recipe.strSource}"></h5>
+                  <h5 th:text="${recipe.strImageSource}"></h5>
+                  <h5 th:text="${recipe.strCreativeCommonsConfirmed}"></h5>
+                  <h5 th:text="${recipe.dateModified}"></h5> 
                 </div>
-                <div class="mb-2 text-muted small">
-                  <span>Unique design</span>
-                  <span class="text-primary"> • </span>
-                  <span>For men</span>
-                  <span class="text-primary"> • </span>
-                  <span>Casual<br /></span>
-                </div>
-                <p class="text-truncate mb-4 mb-md-0">
-                  There are many variations of passages of Lorem Ipsum available, but the
-                  majority have suffered alteration in some form, by injected humour, or
-                  randomised words which don't look even slightly believable.
-                </p>
               </div>
               <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
                 <div class="d-flex flex-row align-items-center mb-1">
                 </div>
-                <h6 class="text-success">Free shipping</h6>
                 <div class="d-flex flex-column mt-4">
-                  <button class="btn btn-primary btn-sm" type="button">Details</button>
-                  <button class="btn btn-outline-primary btn-sm mt-2" type="button">
-                    Add to wishlist
-                  </button>
+                	<a class="btn btn-primary" th:href="@{'/add-ingredients?idMeal='+${recipe.idMeal}}" role="button">Añadir productos</a>
+                	<br>
+					<a class="btn btn-primary" th:href="${recipe.strYoutube}" role="button">Ver en youtube</a>
                 </div>
               </div>
             </div>
@@ -76,7 +64,6 @@
         </div>
       </div>
     </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </section>
 </body>

@@ -10,8 +10,8 @@
 <body>
 <section style="background-color: #eee;">
 <tbody>
-<tr th:each="receta:${recetas}">
-</tbody>
+<tr th:each="recipe:${recipes}">
+
   <div class="container py-5">
     <div class="row justify-content-center mb-3">
       <div class="col-md-12 col-xl-10">
@@ -20,7 +20,7 @@
             <div class="row">
               <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                  <img th:src="${recipe.strMealThumb}"
                     class="w-100" />
                   <a href="#!">
                     <div class="hover-overlay">
@@ -76,6 +76,7 @@
         </div>
       </div>
     </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </section>
 </body>

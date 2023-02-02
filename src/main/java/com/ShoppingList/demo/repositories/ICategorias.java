@@ -5,7 +5,7 @@ import java.util.List;
 import com.ShoppingList.demo.dto.CategoriasDTO;
 import com.ShoppingList.demo.dto.CompraDTO;
 
-public interface ICategoriasDTO{
+public interface ICategorias{
 	
 	public boolean saveCategoria(CategoriasDTO categoria );
 	public boolean updateCompra(CategoriasDTO categoria );

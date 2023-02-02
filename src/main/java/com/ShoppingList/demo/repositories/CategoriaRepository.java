@@ -12,16 +12,12 @@ import com.ShoppingList.demo.dto.CategoriasDTO;
 import com.ShoppingList.demo.mapper.CategoriaRowMapper;
 
 @Repository
-public class CategoriaRepository implements ICategoriasDTO{
+public class CategoriaRepository implements ICategorias{
 	
 	@Autowired
-	@Qualifier("jdbcTemplate")
+	@Qualifier("jdbcTemplateDB1")
 	 private JdbcTemplate jdbcTemplate;
 	    
-	    @Autowired
-	    public CategoriaRepository(JdbcTemplate jdbcTemplate) {
-	        this.jdbcTemplate = jdbcTemplate;
-	    }
     
     @Override
     public boolean saveCategoria(CategoriasDTO categoria) {

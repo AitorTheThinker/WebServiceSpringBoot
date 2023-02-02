@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Pantalla de login</title>
+</head>
+<body>
+<h1>Identificacion</h1>
+<div th:if="${param.error}">
+    Usuario o contraseña incorrecto
+</div>
+<div th:if="${param.logout}">
+    Hasta pronto!
+</div>
+
+<form method="post" th:action="@{/process-login}">
+    <div>
+        <input name="username" placeholder="Usuario" type="text"/>
+    </div>
+    <div>
+        <input name="password" placeholder="Contraseña" type="password"/>
+    </div>
+    <input type="submit" value="Validar"/>
+</form>
+</body>
+</html>

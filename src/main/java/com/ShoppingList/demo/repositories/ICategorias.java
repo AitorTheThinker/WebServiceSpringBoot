@@ -9,9 +9,12 @@ public interface ICategorias{
 	
 	public boolean saveCategoria(CategoriasDTO categoria );
 	public boolean updateCompra(CategoriasDTO categoria );
-	public List getAllCategorias();
+	public List<CategoriasDTO> getAllCategorias();
 	public CategoriasDTO getCategoriasByID(int id);
 	public boolean deleteCategoria(int id);
+	List<CategoriasDTO> getAllCategoria();
+	CategoriasDTO getCategoriasById(int id);
+	public CategoriasDTO getCategoriaById(int id);
 
 	
 }

@@ -22,14 +22,14 @@ public class CategoriaRepository implements ICategorias{
     @Override
     public boolean saveCategoria(CategoriasDTO categoria) {
         String sql = "INSERT INTO categorias (categoria) VALUES (?)";
-        int rows = jdbcTemplate.update(sql, categoria.getcategoria());
+        int rows = jdbcTemplate.update(sql, categoria.getCategoria());
         return rows > 0;
     }
 
     @Override
     public boolean updateCompra(CategoriasDTO categoria) {
         String sql = "UPDATE categorias SET categoria = ? WHERE id = ?";
-        int rows = jdbcTemplate.update(sql, categoria.getcategoria(), categoria.getId());
+        int rows = jdbcTemplate.update(sql, categoria.getCategoria(), categoria.getId());
         return rows > 0;
     }
 
@@ -51,5 +51,23 @@ public class CategoriaRepository implements ICategorias{
         int rows = jdbcTemplate.update(sql, id);
         return rows > 0;
     }
+    @Override
+	public List<CategoriasDTO> getAllCategoria() {
+		
+		
+		return jdbcTemplate.query("SELECT * from Categorias", new CategoriaRowMapper());
+	}
+
+	@Override
+	public CategoriasDTO getCategoriasById(int id) {
+		String sql = String.format("SELECT * FROM Categorias WHERE id='%d'",id);
+		return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper());
+	}
+
+	@Override
+	public CategoriasDTO getCategoriaById(int id) {
+		String sql = String.format("SELECT * FROM Categorias WHERE id='%d'",id);
+		return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper());
+	}
 }
 

@@ -12,5 +12,5 @@ public interface ICompraRepository {
 	public CompraDTO getCompraByID(int id);
 	public boolean deleteCompra(int id);
 	List<CompraDTO> getAllCategorias();
-	
+	public CompraDTO getCompraByDescription(String descripcion);
 }

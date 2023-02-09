@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ShoppingList.demo.dto.RecipeDTO;
+import com.ShoppingList.demo.service.CompraService;
 import com.ShoppingList.demo.service.RecipesServices;
 
 @Controller
@@ -16,6 +17,9 @@ public class RecipesController {
 	
 	@Autowired
 	RecipesServices recipeService;
+	
+	@Autowired
+	CompraService compraService;
 	
 	@GetMapping(value="/go-to-Recipe")
 	public String goTopageListRecetas(Model modelo) {
@@ -30,9 +34,11 @@ public class RecipesController {
 	@GetMapping("/add-ingredients")
 	public String addIngredientsByIdMeal(@RequestParam("idMeal")int idMeal) {
 		
-		RecipeDTO recipe= recipeService.getIndregientsByIdMeal(idMeal);
+		RecipeDTO receta = recipeService.getIndregientsByIdMeal(idMeal);
 		
-		return"pLista";
+		compraService.insertIngredientByApiMeal(receta);
+		
+		return "redirect:/go-to-lista";
 	}
 
 }

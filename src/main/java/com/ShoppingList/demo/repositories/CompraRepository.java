@@ -22,10 +22,11 @@ public class CompraRepository implements ICompraRepository{
 	@Autowired
 	@Qualifier("jdbcTemplateDB2")
 	JdbcTemplate jdbcTemplate2;
+
 	
 	@Override
 	public boolean saveCompra(CompraDTO compra) {
-		   try {
+		   try { /*descripcion, categoria, imagenUrl, enabled  VALUES(%)*/
 			   String sql = "INSERT INTO compras(descripcion, categoria) VALUES(?,?)";
 		        jdbcTemplate.update(sql, compra.getDescripcion(), compra.getCategorias().getId());
 		        jdbcTemplate2.update("INSERT INTO proveedor (nombre, email) VALUES(?,?)", "Proveedores", "Email@Proveedor.com");
@@ -77,6 +78,14 @@ public class CompraRepository implements ICompraRepository{
 	        return false;
 	    }
 	    return true;
+	}
+
+
+
+	public CompraDTO getCompraByDescription(String descripcion) {
+		
+		String sql = String.format("SELECT c.id,c.descripcion,c.categoria,cat.nombre,c.imagenUrl FROM Compras c,categorias cat where c.categoria=cat.id where descripcion='%s'",descripcion);
+		return jdbcTemplate.queryForObject(sql, new CompraRowMapper());
 	}
 	
 }

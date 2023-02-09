@@ -373,5 +373,9 @@ public class RecipeDTO {
 	public void setDateModified(Object dateModified) {
 		this.dateModified = dateModified;
 	}
+	public String[] getIngredients() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 		
 }

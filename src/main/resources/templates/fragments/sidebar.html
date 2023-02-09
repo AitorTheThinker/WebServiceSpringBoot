@@ -1,0 +1,22 @@
+<!-- [Inicio] layoutSidenav_nav -->
+<div id="layoutSidenav_nav" th:fragment="sidebar">
+
+    <!-- [Inicio] Navegação Sidebar -->
+    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+            <div class="nav">
+                <a class="nav-link" href="/">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Inicio
+                </a>
+                <a class="nav-link" th:href="@{'/pratos/'}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-utensils"></i></div>
+                    Pratos
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- [Fim] Navegação Sidebar -->
+
+</div>
+<!-- [Fim] layoutSidenav_nav -->

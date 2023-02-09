@@ -4,19 +4,45 @@ public class CompraDTO {
 	
 	public int id;
 	public String descripcion;
-	private static int counterByID=1;
-	
 	public CategoriasDTO categorias;
+	public String imagenUrl;
+	public boolean enabled;
 	
-	public static void setCounterByID(int counterByID) {
-		CompraDTO.counterByID = counterByID;
+	public CompraDTO(int id, String descripcion, CategoriasDTO categorias, String imagenUrl, boolean enabled) {
+		super();
+		this.id = id;
+		this.descripcion = descripcion;
+		this.categorias = categorias;
+		this.imagenUrl = imagenUrl;
+		this.enabled = enabled;
 	}
+
+	public String getImagenUrl() {
+		return imagenUrl;
+	}
+
+	public void setImagenUrl(String imagenUrl) {
+		this.imagenUrl = imagenUrl;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 
 	public CompraDTO() {
 		super();
 		categorias = new CategoriasDTO();
 	}
 	
+	public CompraDTO(String ingrediente, CategoriasDTO cat, String urlImagen) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {	
 		return id;
 	}
@@ -28,10 +54,6 @@ public class CompraDTO {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
-	public static int getCounterByID() {
-
-		return counterByID++;
 	}
 
 	

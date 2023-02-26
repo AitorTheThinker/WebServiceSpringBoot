@@ -16,15 +16,19 @@ public class UserRepository implements IUserRepository{
 	 @Autowired
 	 @Qualifier("jdbcTemplateDB1")
 	  private JdbcTemplate jdbcTemplate;
+	 @Autowired
+	 
+	 @Qualifier("jdbcTemplateDB2")
+	  private JdbcTemplate jdbcTemplate2;
 
-	  public UserRepository(@Qualifier("jdbcTemplateDB1") JdbcTemplate jdbcTemplateDB1) {
-	    this.jdbcTemplate = jdbcTemplateDB1;
+	  public UserRepository(@Qualifier("jdbcTemplateDB2") JdbcTemplate jdbcTemplateDB2) {
+	    this.jdbcTemplate = jdbcTemplateDB2;
 	  }
 
 
 	@Override
 	public UserDTO findByUsername(String username) {
 		String sql = String.format("SELECT username,  password from users where username = '%s'", username);
-		return jdbcTemplate.queryForObject(sql, new UserRowMapper());
+		return jdbcTemplate2.queryForObject(sql, new UserRowMapper());
 	}
 }

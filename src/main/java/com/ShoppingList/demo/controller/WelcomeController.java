@@ -128,23 +128,23 @@ public class WelcomeController implements ErrorController{
 
 		model.addAttribute("categorias", categoriaRepository.getAllCategorias());
 
-		return "pAddProducto";
+		return "/shoplist/pAddProducto";
 	}
 	
-	@GetMapping("/pantallaRegistro")
+	@GetMapping("/go-to-PantallaRegistro")
 	public String goPantallaRegistro(Model model) {
 		
 		UserDTO user = new UserDTO();
 		model.addAttribute("usuario", user);
 		
-		return "registration";
+		return "/login/registration";
 	}
 	
 	@PostMapping("/irRegistroUsuario")
 	public String realizarRegistro(@ModelAttribute("usuario") UserDTO user) {
 		
 
-		return "registration";
+		return "/";
 	}
 	
 	

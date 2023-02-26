@@ -4,33 +4,202 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	 <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  </head>
-	<title>Shopping Lists</title>
+	 <title>Spriboot Demo</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/css/IndexStyle.css">
+  	
 </head>
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-   <a class="navbar-brand" href="/">SPRINGBOOT</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+<div class="public-header">
+		<div class="public-container clearfloat">
+		<div class="header-logo"><a href="/">SPRINGBOOT RECIPE</a></div>
+		<ul class="header-nav clearfloat">
+			<li class="item">
          <a th:href="@{/go-to-Recipe}">Ir a Recetas</a>
         </li>
-         <li class="nav-item">
-         	<a href="/go-to-lista">Ir al a lista</a>
-         	<a href="/login">login</a>
+        <li class="item">
+         <a th:href="@{/go-to-Lista}">Ir a Lista</a>
         </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<p th:text="#{index.saludo}"></p>
-
-	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+          <li class="item"><a th:href="@{/go-to-Login}">Log in</a></li>
+		</ul>
+		</div>
+	</div>
+	<div class="index-banner">
+		<div class="index-banner-bg"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/banner.jpg?raw=true" alt="banner"/></div>
+		<div class="index-banner-text">
+			<div class="text-logo"></div>
+			<p class="text-info">
+				<i class="line line-left"></i>
+				<span class="text">SpringBoot Recipe</span><i class="line line-right"></i>
+			</p>
+		</div>
+	</div>
+	<div class="index-menu">
+		<div class="menu-tips">The Menu</div>
+		<div class="public-container  menu-list">
+			<ul class="clearfloat">
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Voluptate cillum fugiat.</h4>
+						<p class="comment">Cheese, tomato, mushrooms, onions.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Arcu pede enim justo.</h4>
+						<p class="comment">Arcu pede enim justo.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Metus varius laoreet.</h4>
+						<p class="comment">Chicken, mozzarella cheese, onions.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Cras dapibussemper nisi.</h4>
+						<p class="comment">Pineapple, Minced Beef, Cheese.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Donec sodales magna.</h4>
+						<p class="comment">Tuna, Sweetcorn, Cheese.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Quam semper libero.</h4>
+						<p class="comment">Cheese, tomato, mushrooms, onions.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Saugue velit cursus.</h4>
+						<p class="comment">Pineapple, Minced Beef, Cheese.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+				<li class="menu-item clearfloat">
+					<a class="title">
+						<h4>Nam eget dui Etiam.</h4>
+						<p class="comment">Chicken, mozzarella cheese, onions.</p>
+					</a>
+					<div class="line"></div>
+					<div class="price"></div>
+				</li>
+			</ul>
+		</div>
+		<a href="#" class="menu-more-btn">load more <span>|</span><span class="icon"></span></a>
+	</div>
+	<div class="index-panel">
+		<div class="inedx-panel-header clearfloat">
+			<h3>FEATURED DISHES</h3>
+			<div class="line"></div>
+			<div class="btn-group">
+				<a href="#" class="btn active"></a>
+				<a href="#" class="btn"></a>
+				<a href="#" class="btn"></a>
+				<a href="#" class="btn"></a>
+			</div>
+		</div>
+		<div class="index-panel-body index-food-list">
+			<ul class="clearfloat">
+				<li class="food-item">
+					<a href="#">
+					<img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel01.jpg?raw=true" class="banner" alt="">
+					<div class="name"><span class="price">$30</span>Fugiat nulla sint</div>
+					<div class="star-bar">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star no-star"></span>
+					</div>
+					</a>
+				</li>
+				<li class="food-item"><a href="#"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel02.jpg?raw=true" alt="" class="banner">
+				<div class="name"><span class="price">$24</span>Daute irure dolor</div>
+					<div class="star-bar">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star no-star"></span>
+						<span class="star no-star"></span>
+					</div>
+					</a></li>
+				<li class="food-item"><a href="#"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel03.jpg?raw=true" alt="" class="banner">
+				<div class="name"><span class="price">$60</span>Officia deserunt mollit</div>
+					<div class="star-bar">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+					</div>
+				</a></li>
+				<li class="food-item"><a href="#"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel04.jpg?raw=true" alt="" class="banner">
+					<div class="name"><span class="price">$17</span>Pim minim veniam</div>
+					<div class="star-bar">
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star"></span>
+						<span class="star  no-star"></span>
+					</div>
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="index-panel">
+		<div class="inedx-panel-header clearfloat">
+			<h3>THE GALLERY</h3>
+			<div class="line"></div>
+		</div>
+		<div class="index-panel-body index-pics">
+			<a class="pic-col pic-col-m"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel05.jpg?raw=true"/></a>
+			<div class="pic-col pic-col-s">
+				<a class="pic-row"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel06.jpg?raw=true"/></a>
+				<a class="pic-row"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel07.jpg?raw=true"/></a>
+			</div>
+			<a class="pic-col pic-col-l"><img src="https://github.com/JessicaPotter2/foodWebsite/blob/master/images/panel08.jpg?raw=true"/></a>
+		</div>
+	</div>
+	<div class="public-footer">
+		<div class="public-container">
+		<div class="footer-col">
+			<p>New York Restaurant<br/> 3926 Anmoore Road<br/> New York, NY 10014<br/><a href="tel:718-749-1714" class="footer-tel">718-749-1714</a></p>
+		</div>
+		<div class="footer-col">
+			<p>France Restaurant<br/> 68, rue  de la Couronne<br/> 75002 PARIS<br/>02.94.23.69.56</p>
+		</div>
+		<div class="footer-col">
+			<a href="#">Blog</a>
+			<a href="#">Careers</a>
+			<a href="#">Privacy Policy</a>
+			<a>Contact</a>
+		</div>
+		<div class="footer-col footer-col-nor">
+			<div class="footer-logo"></div>
+			<div class="footer-info">© All Rights Reserved 2014. Find  More at Pixelhint.com
+			<br/>Coded by <a href="mailto:cumtyeyunjiao@163.com">cumtyeyunjiao</a></div>
+		</div>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

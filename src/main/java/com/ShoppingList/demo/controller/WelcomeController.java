@@ -1,6 +1,4 @@
-package com.ShoppingList.demo.controles;
-
-
+package com.ShoppingList.demo.controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,9 +31,6 @@ import com.ShoppingList.demo.repositories.CategoriaRepository;
 import com.ShoppingList.demo.repositories.CompraRepository;
 import com.google.gson.Gson;
 
-
-
-
 @Controller
 public class WelcomeController implements ErrorController{
 
@@ -48,30 +43,23 @@ public class WelcomeController implements ErrorController{
 	
 	public List<CompraDTO> listaCompras =  new ArrayList<CompraDTO>();
 	
+	//Index
 	@GetMapping("/")
 	public String goToIndex(Model model) {
 	
-		return "pUsuarios.html";
+		return "index.html";
 	}
-	
 	//Login form
-	@RequestMapping("/login")
+	@RequestMapping("/go-to-Login")
 	public String login(Model model) {
 		UserDTO user = new UserDTO();
 		model.addAttribute("user", user);
 		
-		return "login.html";
+		return "/login/Login.html";
 	}
-	
-	/**
-	 * Metodo GET para obtener la request
-	 * y mostrar los resultados de las compras
-	 * @param model
-	 * @param categoria
-	 * @return
-	 */
+	//Lista compras
 	@Cacheable(value="compras")
-	@GetMapping("/go-to-lista")
+	@GetMapping("/go-to-Lista")
 	public String goToLista(Model model) {
 	    List<CompraDTO> compras = compraRepository.getAllCompras();
 	    for (CompraDTO c : compras) {
@@ -93,7 +81,7 @@ public class WelcomeController implements ErrorController{
 		
 		model.addAttribute("admin", hasUserRole);
 		
-	    return "pLista";
+	    return "/shoplist/pLista";
 	}
 
 	
@@ -177,38 +165,6 @@ public class WelcomeController implements ErrorController{
 		
 		return "pAddProducto";
 		
-	}
-//	@ExceptionHandler(ViewNotFoundException.class)
-//	public ModelAndView handleStudentNotFoundException(ViewNotFoundException ex) {
-//		Map<String, ViewNotFoundException> model = new HashMap<String, ViewNotFoundException>();
-//		model.put("exception", ex);
-//		return new ModelAndView("404error", model);
-//
-//	}
-//
-	
-	
-	
-	
-//	@RequestMapping("/error")
-//	public String showError404Generic(Exception ex) {
-//
-//		return "404error";
-//
-//	}
-	
-	
-	
-	
-	
-//
-//	@ExceptionHandler(Exception.class)
-//	public ModelAndView handleException(Exception ex) {
-//		Map<String, Exception> model = new HashMap<String, Exception>();
-//		model.put("exception", ex);
-//		return new ModelAndView("student.error.500", model);
-//
-//	}
-		
+	}		
 	
 }

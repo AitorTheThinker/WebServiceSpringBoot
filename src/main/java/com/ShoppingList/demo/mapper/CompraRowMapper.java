@@ -20,7 +20,4 @@ public class CompraRowMapper implements RowMapper<CompraDTO>{
 		compra.setImagenUrl(rs.getString(5));
 		return compra;
 	}
-
-
-	
 }

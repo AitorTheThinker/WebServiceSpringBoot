@@ -1,4 +1,4 @@
-package com.ShoppingList.demo.controles;
+package com.ShoppingList.demo.controller;
 
 import java.util.ArrayList;
 
@@ -27,7 +27,7 @@ public class RecipesController {
 		ArrayList<RecipeDTO> recipe=recipeService.getListRecipesRandom();
 		modelo.addAttribute("recipes", recipe);
 		
-		return"Recipe/pListaRecipe";
+		return"Recipe/RecipeList";
 		
 	}
 

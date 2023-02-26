@@ -1,7 +1,4 @@
 package com.ShoppingList.demo.service;
-	
-	
-	
 	import java.util.ArrayList;
 	
 	import org.springframework.stereotype.Service;
@@ -16,7 +13,7 @@ package com.ShoppingList.demo.service;
 	public class RecipesServices {
 		
 		private final String urlMealApiRandom="https://www.themealdb.com/api/json/v1/1/random.php";
-		private final String urlMealApiByIdMeal="www.themealdb.com/api/json/v1/1/lookup.php?i=";
+		private final String urlMealApiByIdMeal="https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 		
 		public RecipeDTO getRecipeFromApi(){
 			

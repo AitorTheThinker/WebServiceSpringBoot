@@ -1,14 +1,14 @@
 package com.ShoppingList.demo.dto;
 
-public class CompraDTO {
+public class PurchaseDTO {
 	
 	public int id;
 	public String descripcion;
-	public CategoriasDTO categorias;
+	public CategoriesDTO categorias;
 	public String imagenUrl;
 	public boolean enabled;
 	
-	public CompraDTO(int id, String descripcion, CategoriasDTO categorias, String imagenUrl, boolean enabled) {
+	public PurchaseDTO(int id, String descripcion, CategoriesDTO categorias, String imagenUrl, boolean enabled) {
 		super();
 		this.id = id;
 		this.descripcion = descripcion;
@@ -34,12 +34,12 @@ public class CompraDTO {
 	}
 
 
-	public CompraDTO() {
+	public PurchaseDTO() {
 		super();
-		categorias = new CategoriasDTO();
+		categorias = new CategoriesDTO();
 	}
 	
-	public CompraDTO(String ingrediente, CategoriasDTO cat, String urlImagen) {
+	public PurchaseDTO(String ingrediente, CategoriesDTO cat, String urlImagen) {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -57,11 +57,11 @@ public class CompraDTO {
 	}
 
 	
-	public CategoriasDTO getCategorias() {
+	public CategoriesDTO getCategorias() {
 		return categorias;
 	}
 	
-	public void setCategorias(CategoriasDTO categoria) {
+	public void setCategorias(CategoriesDTO categoria) {
 		this.categorias = categoria;
 		categorias.setId(categoria.getId());
 	}

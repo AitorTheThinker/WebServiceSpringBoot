@@ -2,19 +2,19 @@ package com.ShoppingList.demo.repositories;
 
 import java.util.List;
 
-import com.ShoppingList.demo.dto.CategoriasDTO;
-import com.ShoppingList.demo.dto.CompraDTO;
+import com.ShoppingList.demo.dto.CategoriesDTO;
+import com.ShoppingList.demo.dto.PurchaseDTO;
 
-public interface ICategorias{
+public interface ICategory{
 	
-	public boolean saveCategoria(CategoriasDTO categoria );
-	public boolean updateCompra(CategoriasDTO categoria );
-	public List<CategoriasDTO> getAllCategorias();
-	public CategoriasDTO getCategoriasByID(int id);
+	public boolean saveCategoria(CategoriesDTO categoria );
+	public boolean updateCompra(CategoriesDTO categoria );
+	public List<CategoriesDTO> getAllCategorias();
+	public CategoriesDTO getCategoriasByID(int id);
 	public boolean deleteCategoria(int id);
-	List<CategoriasDTO> getAllCategoria();
-	CategoriasDTO getCategoriasById(int id);
-	public CategoriasDTO getCategoriaById(int id);
+	List<CategoriesDTO> getAllCategoria();
+	CategoriesDTO getCategoriasById(int id);
+	public CategoriesDTO getCategoriaById(int id);
 
 	
 }

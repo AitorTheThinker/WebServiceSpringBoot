@@ -2,15 +2,15 @@ package com.ShoppingList.demo.repositories;
 
 import java.util.List;
 
-import com.ShoppingList.demo.dto.CompraDTO;
+import com.ShoppingList.demo.dto.PurchaseDTO;
 
-public interface ICompraRepository {
+public interface IPurchaseRepository {
 	
-	public boolean saveCompra(CompraDTO compra);
-	public boolean updateCompra(CompraDTO compra);
-	public List<CompraDTO> getAllCompras();
-	public CompraDTO getCompraByID(int id);
+	public boolean saveCompra(PurchaseDTO compra);
+	public boolean updateCompra(PurchaseDTO compra);
+	public List<PurchaseDTO> getAllCompras();
+	public PurchaseDTO getCompraByID(int id);
 	public boolean deleteCompra(int id);
-	List<CompraDTO> getAllCategorias();
-	public CompraDTO getCompraByDescription(String descripcion);
+	List<PurchaseDTO> getAllCategorias();
+	public PurchaseDTO getCompraByDescription(String descripcion);
 }

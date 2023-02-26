@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.ShoppingList.demo.dto.CategoriasDTO;
+import com.ShoppingList.demo.dto.CategoriesDTO;
 
-import com.ShoppingList.demo.mapper.CategoriaRowMapper;
+import com.ShoppingList.demo.mapper.CategoryRowMapper;
 
 @Repository
-public class CategoriaRepository implements ICategorias{
+public class CategoryRepository implements ICategory{
 	
 	@Autowired
 	@Qualifier("jdbcTemplateDB1")
@@ -20,29 +20,29 @@ public class CategoriaRepository implements ICategorias{
 	    
     
     @Override
-    public boolean saveCategoria(CategoriasDTO categoria) {
+    public boolean saveCategoria(CategoriesDTO categoria) {
         String sql = "INSERT INTO category (categoria) VALUES (?)";
         int rows = jdbcTemplate.update(sql, categoria.getCategoria());
         return rows > 0;
     }
 
     @Override
-    public boolean updateCompra(CategoriasDTO categoria) {
+    public boolean updateCompra(CategoriesDTO categoria) {
         String sql = "UPDATE category SET categoria = ? WHERE id = ?";
         int rows = jdbcTemplate.update(sql, categoria.getCategoria(), categoria.getId());
         return rows > 0;
     }
 
     @Override
-    public List<CategoriasDTO> getAllCategorias() {
+    public List<CategoriesDTO> getAllCategorias() {
         String sql = "SELECT * FROM category";
-        return jdbcTemplate.query(sql, new CategoriaRowMapper());
+        return jdbcTemplate.query(sql, new CategoryRowMapper());
     }
 
     @Override
-    public CategoriasDTO getCategoriasByID(int id) {
+    public CategoriesDTO getCategoriasByID(int id) {
         String sql = "SELECT * FROM category WHERE id = "+id;
-        return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper());
+        return jdbcTemplate.queryForObject(sql, new CategoryRowMapper());
     }
 
     @Override
@@ -52,22 +52,22 @@ public class CategoriaRepository implements ICategorias{
         return rows > 0;
     }
     @Override
-	public List<CategoriasDTO> getAllCategoria() {
+	public List<CategoriesDTO> getAllCategoria() {
 		
 		
-		return jdbcTemplate.query("SELECT * from category", new CategoriaRowMapper());
+		return jdbcTemplate.query("SELECT * from category", new CategoryRowMapper());
 	}
 
 	@Override
-	public CategoriasDTO getCategoriasById(int id) {
+	public CategoriesDTO getCategoriasById(int id) {
 		String sql = String.format("SELECT * FROM category WHERE id='%d'",id);
-		return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper());
+		return jdbcTemplate.queryForObject(sql, new CategoryRowMapper());
 	}
 
 	@Override
-	public CategoriasDTO getCategoriaById(int id) {
+	public CategoriesDTO getCategoriaById(int id) {
 		String sql = String.format("SELECT * FROM category WHERE id='%d'",id);
-		return jdbcTemplate.queryForObject(sql, new CategoriaRowMapper());
+		return jdbcTemplate.queryForObject(sql, new CategoryRowMapper());
 	}
 }
 

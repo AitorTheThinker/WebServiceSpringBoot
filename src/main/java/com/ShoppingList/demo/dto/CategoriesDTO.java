@@ -1,21 +1,21 @@
 package com.ShoppingList.demo.dto;
 
-public class CategoriasDTO {
+public class CategoriesDTO {
 
 	public int id;
 	public String categoria;
 	
-	public CategoriasDTO(int id, String categoria) {
+	public CategoriesDTO(int id, String categoria) {
 		super();
 		this.id = id;
 		this.categoria = categoria;
 	}
-	public CategoriasDTO() {
+	public CategoriesDTO() {
 		super();
 	}
 	
 	
-	public CategoriasDTO(int id) {
+	public CategoriesDTO(int id) {
 		super();
 		this.id = id;
 	}

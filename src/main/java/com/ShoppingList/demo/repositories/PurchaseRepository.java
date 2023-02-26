@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.ShoppingList.demo.dto.CompraDTO;
-import com.ShoppingList.demo.mapper.CompraRowMapper;
+import com.ShoppingList.demo.dto.PurchaseDTO;
+import com.ShoppingList.demo.mapper.PurchaseRowMapper;
 
 @Repository
-public class CompraRepository implements ICompraRepository{
+public class PurchaseRepository implements IPurchaseRepository{
 
 	@Autowired
 	@Qualifier("jdbcTemplateDB1")
@@ -25,7 +25,7 @@ public class CompraRepository implements ICompraRepository{
 
 	
 	@Override
-	public boolean saveCompra(CompraDTO compra) {
+	public boolean saveCompra(PurchaseDTO compra) {
 		   try { /*descripcion, categoria, imagenUrl, enabled  VALUES(%)*/
 			   String sql = "INSERT INTO shoplist(descripcion, categoria) VALUES(?,?)";
 		        jdbcTemplate.update(sql, compra.getDescripcion(), compra.getCategorias().getId());
@@ -38,7 +38,7 @@ public class CompraRepository implements ICompraRepository{
 	
 
 	@Override
-	public boolean updateCompra(CompraDTO compra) {
+	public boolean updateCompra(PurchaseDTO compra) {
 	    try {
 	        String sql = "UPDATE shoplist SET descripcion = ? WHERE id = ?";
 	        jdbcTemplate.update(sql,compra.getDescripcion(),compra.getId());
@@ -49,23 +49,23 @@ public class CompraRepository implements ICompraRepository{
 	}
 	
 	@Override
-	public List<CompraDTO> getAllCompras() {
+	public List<PurchaseDTO> getAllCompras() {
 		
-		return jdbcTemplate.query("SELECT * FROM shoplist", new CompraRowMapper());
+		return jdbcTemplate.query("SELECT * FROM shoplist", new PurchaseRowMapper());
 		
 
 	}
 	@Override
-	public List<CompraDTO> getAllCategorias() {
+	public List<PurchaseDTO> getAllCategorias() {
 		
-		return jdbcTemplate.query("SELECT * FROM category", new CompraRowMapper());
+		return jdbcTemplate.query("SELECT * FROM category", new PurchaseRowMapper());
 		
 	}
 
 	@Override
-	public CompraDTO getCompraByID(int id) {
+	public PurchaseDTO getCompraByID(int id) {
 		return jdbcTemplate.queryForObject("SELECT * FROM shoplist WHERE id="+id,
-				new CompraRowMapper());
+				new PurchaseRowMapper());
 	}
 
 	
@@ -82,10 +82,10 @@ public class CompraRepository implements ICompraRepository{
 
 
 
-	public CompraDTO getCompraByDescription(String descripcion) {
+	public PurchaseDTO getCompraByDescription(String descripcion) {
 		
 		String sql = String.format("SELECT c.id,c.descripcion,c.categoria,cat.nombre,c.imagenUrl FROM shoplist c,categorias cat where c.categoria=cat.id where descripcion='%s'",descripcion);
-		return jdbcTemplate.queryForObject(sql, new CompraRowMapper());
+		return jdbcTemplate.queryForObject(sql, new PurchaseRowMapper());
 	}
 	
 }

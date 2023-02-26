@@ -73,9 +73,9 @@ public class ListaCompraSecurity {
 		.formLogin()
         .loginPage("/login")
         .failureUrl("/login?error")
-		.loginProcessingUrl("/process-login")
+		.loginProcessingUrl("/process-login");
 //		.failuteForwardUrl("/login_failure_handler")
-		.successForwardUrl("/login_success_handler");
+//		.successForwardUrl("/login_success_handler");
 //		http.authorizeRequests()
 //		.requestMatchers("/admin").hasRole(ADMIN)
 //		.requestMatchers("/user").hasAnyRole(ADMIN, USER)

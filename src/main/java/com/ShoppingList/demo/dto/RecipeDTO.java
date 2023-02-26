@@ -1,5 +1,9 @@
 package com.ShoppingList.demo.dto;
 
+import java.util.List;
+import java.util.ArrayList;
+
+
 public class RecipeDTO {
 	public String idMeal;
     public String strMeal;
@@ -373,5 +377,20 @@ public class RecipeDTO {
 	public void setDateModified(Object dateModified) {
 		this.dateModified = dateModified;
 	}
+	public String[] getIngredients() {
+	    List<String> ingredientsList = new ArrayList<>();
+	    if (strIngredient1 != null && !strIngredient1.isBlank()) {
+	        ingredientsList.add(strIngredient1);
+	    }
+	    if (strIngredient2 != null && !strIngredient2.isBlank()) {
+	        ingredientsList.add(strIngredient2);
+	    }
+	    // add more ingredients as needed
+
+	    return ingredientsList.toArray(new String[0]);
+	}
+
+	
 		
 }
+

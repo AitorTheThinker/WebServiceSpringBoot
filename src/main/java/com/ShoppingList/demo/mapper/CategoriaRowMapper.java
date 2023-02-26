@@ -15,11 +15,12 @@ public class CategoriaRowMapper implements RowMapper<CategoriasDTO>{
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-    @Override
-    public CategoriasDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-        CategoriasDTO categorias= new CategoriasDTO();
-        categorias.setId(rs.getInt("id"));
-        categorias.setCategoria(rs.getString("categoria"));
-        return categorias;
-    }
+	@Override
+	public CategoriasDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+		CategoriasDTO cat = new CategoriasDTO();
+		cat.setId(rs.getInt(1));
+		cat.setCategoria(rs.getString(2));
+		
+		return cat;
+	}
 }

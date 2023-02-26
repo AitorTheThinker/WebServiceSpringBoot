@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/RecipeList.css">
+  
+  <title>Recipe List</title>
+</head>
+<body>
+<div class="public-header">
+		<div class="public-container clearfloat">
+		<div class="header-logo"><a href="/">SPRINGBOOT RECIPE</a></div>
+		<ul class="header-nav clearfloat">
+			<li class="item">
+         <a th:href="@{/go-to-Recipe}">Ir a Recetas</a>
+        </li>
+        <li class="item">
+         <a th:href="@{/go-to-Lista}">Ir a Lista</a>
+        </li>
+          <li class="item"><a th:href="@{/go-to-Login}">Log in</a></li>
+		</ul>
+		</div>
+	</div>
+	</div>
+<section style="background-color: #eee;">
+<tbody>
+<tr th:each="recipe:${recipes}">
+  <div class="container py-5">
+    <div class="row justify-content-center mb-3">
+      <div class="col-md-12 col-xl-10">
+        <div class="card shadow-0 border rounded-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                <div class="bg-image hover-zoom ripple rounded ripple-surface">
+                  <img th:src="${recipe.strMealThumb}"
+                    class="w-100" />
+                  <a href="#!">
+                    <div class="hover-overlay">
+                      <div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6 col-xl-6">
+                <h5 th:text="${recipe.strMeal}"></h5>
+                <div class="d-flex flex-row">
+                  <div class="text-danger mb-1 me-2">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <div class="mt-1 mb-0 text-muted small">
+                  <h5 th:text="${recipe.strDrinkAlternate}"></h5>
+                  <h5 th:text="${recipe.strCategory}"></h5>
+                  <h5 th:text="${recipe.strArea}"></h5>
+                  <p class="text-truncate" th:text="${recipe.strInstructions}"></p>
+                  <h5 th:text="${recipe.strTags}"></h5>
+                  <h5 th:text="${recipe.strSource}"></h5>
+                  <h5 th:text="${recipe.strImageSource}"></h5>
+                  <h5 th:text="${recipe.strCreativeCommonsConfirmed}"></h5>
+                  <h5 th:text="${recipe.dateModified}"></h5> 
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                <div class="d-flex flex-row align-items-center mb-1">
+                </div>
+                <div class="d-flex flex-column mt-4">
+                	<a class="btn btn-primary" th:href="@{'/add-ingredients?idMeal='+${recipe.idMeal}}" role="button">Añadir productos</a>
+                	<br>
+				<a class="btn btn-primary" th:href="${recipe.strYoutube}" target="_blank" role="button">Ver en youtube</a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</section>
+</body>
+</html>
+  

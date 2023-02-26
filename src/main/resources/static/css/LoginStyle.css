@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: #456;
+    background: #dedede;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -87,4 +87,94 @@ body {
 /* Buttons' focus effect */
 .login input[type="submit"]:focus {
   border-color: #05a;
+}
+
+.inedx-panel-header {
+}
+.inedx-panel-header h3 {
+  float: left;
+  margin-right: 48px;
+  font-size: 20px;
+  color: #3b3b3b;
+  font-weight: normal;
+}
+.inedx-panel-header .line {
+  float: left;
+  margin-top: 10px;
+  width: 200px;
+  border-top: 1px solid #e5e3e3;
+}
+.inedx-panel-header .btn-group {
+  font-size: 0;
+  float: right;
+}
+.inedx-panel-header .btn {
+  display: inline-block;
+  margin-left: 11px;
+  width: 9px;
+  height: 9px;
+  background: #dedede;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+}
+.inedx-panel-header .active {
+  background: #9b9b9b;
+}
+.public-header {
+  height: 110px;
+}
+.public-header .header-logo {
+  margin-top: 40px;
+  float: left;
+}
+.public-header .header-logo a {
+  width: 182px;
+  height: 54px;
+  
+}
+.public-header .header-nav a:hover {
+  text-decoration: underline;
+}
+.public-header .header-nav {
+  float: right;
+  font-size: 14px;
+}
+.public-header .header-nav .item {
+  float: left;
+  margin-top: 44px;
+  margin-left: 44px;
+}
+.public-header .header-nav a {
+  color: #3b3b3b;
+}
+.public-container {
+  position: relative;
+  margin: 0 auto;
+  width: 1100px;
+}
+.public-footer {
+  height: 218px;
+  padding-top: 100px;
+  margin-top: 200px;
+  background: #3b3b3b;
+}
+.public-footer .footer-col {
+  width: 230px;
+  float: left;
+  margin-right: 60px;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.8;
+}
+.public-footer .footer-col-nor {
+  margin-right: 0;
+}
+.public-footer .footer-logo {
+  width: 182px;
+  height: 55px;
+  margin-top: -15px;
+  margin-bottom: 12px;
+  background: url("https://github.com/JessicaPotter2/foodWebsite/blob/master/images/index-footer-logo.png?raw=true")
+    no-repeat;
 }

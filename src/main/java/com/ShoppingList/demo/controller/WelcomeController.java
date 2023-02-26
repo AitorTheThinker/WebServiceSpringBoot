@@ -23,25 +23,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 
-import com.ShoppingList.demo.dto.CategoriasDTO;
-import com.ShoppingList.demo.dto.CompraDTO;
+import com.ShoppingList.demo.dto.CategoriesDTO;
+import com.ShoppingList.demo.dto.PurchaseDTO;
 import com.ShoppingList.demo.dto.RandomUserDTO.Root;
 import com.ShoppingList.demo.dto.UserDTO;
-import com.ShoppingList.demo.repositories.CategoriaRepository;
-import com.ShoppingList.demo.repositories.CompraRepository;
+import com.ShoppingList.demo.repositories.CategoryRepository;
+import com.ShoppingList.demo.repositories.PurchaseRepository;
 import com.google.gson.Gson;
 
 @Controller
 public class WelcomeController implements ErrorController{
 
 	@Autowired
-	CompraRepository compraRepository;	
+	PurchaseRepository compraRepository;	
 	
 	@Autowired
-	CategoriaRepository categoriaRepository;	
+	CategoryRepository categoriaRepository;	
 	
 	
-	public List<CompraDTO> listaCompras =  new ArrayList<CompraDTO>();
+	public List<PurchaseDTO> listaCompras =  new ArrayList<PurchaseDTO>();
 	
 	//Index
 	@GetMapping("/")
@@ -61,8 +61,8 @@ public class WelcomeController implements ErrorController{
 	@Cacheable(value="compras")
 	@GetMapping("/go-to-Lista")
 	public String goToLista(Model model) {
-	    List<CompraDTO> compras = compraRepository.getAllCompras();
-	    for (CompraDTO c : compras) {
+	    List<PurchaseDTO> compras = compraRepository.getAllCompras();
+	    for (PurchaseDTO c : compras) {
 	        int idCategoria = c.getCategorias().getId();
 	    }
 	    model.addAttribute("productos", compras);
@@ -87,9 +87,9 @@ public class WelcomeController implements ErrorController{
 	
 	
 	@PostMapping("/add-producto")
-	public String goProductoToList(@ModelAttribute("producto") CompraDTO producto) {
+	public String goProductoToList(@ModelAttribute("producto") PurchaseDTO producto) {
 		
-		CategoriasDTO categoria = categoriaRepository.getCategoriasByID(producto.getCategorias().getId());
+		CategoriesDTO categoria = categoriaRepository.getCategoriasByID(producto.getCategorias().getId());
 		producto.setCategorias(categoria);
 
 		
@@ -119,8 +119,8 @@ public class WelcomeController implements ErrorController{
 	@GetMapping("/add-producto")
 	public String goToFormProducto(Model model) {
 
-		CompraDTO producto = new CompraDTO();
-		CategoriasDTO cat = new CategoriasDTO();
+		PurchaseDTO producto = new PurchaseDTO();
+		CategoriesDTO cat = new CategoriesDTO();
 //		producto.setCategoria(cat);
 
 //		model.addAttribute("categoria",cat);
@@ -128,23 +128,23 @@ public class WelcomeController implements ErrorController{
 
 		model.addAttribute("categorias", categoriaRepository.getAllCategorias());
 
-		return "pAddProducto";
+		return "/shoplist/pAddProducto";
 	}
 	
-	@GetMapping("/pantallaRegistro")
+	@GetMapping("/go-to-PantallaRegistro")
 	public String goPantallaRegistro(Model model) {
 		
 		UserDTO user = new UserDTO();
 		model.addAttribute("usuario", user);
 		
-		return "registration";
+		return "/login/registration";
 	}
 	
 	@PostMapping("/irRegistroUsuario")
 	public String realizarRegistro(@ModelAttribute("usuario") UserDTO user) {
 		
 
-		return "registration";
+		return "/";
 	}
 	
 	
@@ -159,7 +159,7 @@ public class WelcomeController implements ErrorController{
 	@GetMapping("/update-producto")
 	public String updateProductoByID(@RequestParam("id") int id, Model model ) {
 		
-		CompraDTO compra=compraRepository.getCompraByID(id);
+		PurchaseDTO compra=compraRepository.getCompraByID(id);
 		model.addAttribute("producto",compra);
 		model.addAttribute("categorias", categoriaRepository.getAllCategorias());
 		
